@@ -1,0 +1,10 @@
+.card-deck .card {
+    margin-bottom: 30px;
+    min-width: 33%;
+    margin-left: 60px;
+}
+
+.btn-primary {
+    margin-bottom: 15px;
+}
+

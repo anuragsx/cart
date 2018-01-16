@@ -1,0 +1,29 @@
+.card-deck .card {
+    margin-bottom: 30px;
+    min-width: 20%;
+    margin-left: 15px;
+}
+
+.btn-primary {
+    margin-bottom: 15px;
+}
+
+.product-name {
+	text-align: center;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.input-style {
+	display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 16px;
+    -webkit-margin-end: 0px;
+}
+
+.form-inline .form-control {
+    width: 50%;
+}
