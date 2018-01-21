@@ -3,11 +3,11 @@
 	<div class="col-md-8">
 		<form class="form-inline">
 		  <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-		  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+		  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" (change)="onChangeSort($event)">
 		    <option selected>Catalog Type</option>
-		    <option value="1">One</option>
-		    <option value="2">Two</option>
-		    <option value="3">Three</option>
+		    <option value="Components and Accessories">Components and Accessories</option>
+		    <option value="Interior">Interior</option>
+		    <option value="Exterior">Exterior</option>
 		  </select>
 
 		   <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
@@ -19,9 +19,14 @@
 		  </select>
 
 		 <div class="input-group">
-		  <input class="form-control"
-		         placeholder="Search">
-		  <div class="input-group-addon" ><i class="fa fa-search"></i></div>
+      <p-autoComplete [(ngModel)]="product" 
+        [suggestions]="filteredProducts" 
+        (completeMethod)="filterProducts($event)" 
+        (onSelect) = "listProducts($event)"
+        field="name" [size]="20"
+        placeholder="Products" 
+        [minLength]="2">
+      </p-autoComplete>
 		</div>
 
 		</form>		
@@ -29,78 +34,9 @@
 </div>
 
 
-
-
-
 <div class="card-deck row"  >
-  <div class="card col-md-4 col-sm-4">
-  	<div class="product-name">Product Name</div>
-    <img class="card-img-top" [src]="fullImagePath" alt="Card image cap">
-    <div class="card-block">
-      <div class="input-style">
-      	 <form class="form-inline">
-		  <div class="form-group row">
-		  	<label class="col-md-2 font-weight-bold" for="quantity">Quantity</label>
-		  	<div class="col-sm-10 col-md-10">
-		  		<input type="text" class="form-control small-w" id="quantity">
-		  	</div>
-		  </div>	
-		</form>
-      </div>
-      <p class="card-text">Already on Order: 5 </p>
-      <p class="card-text">
-      	<button class="btn btn-primary" [routerLink]="['/products']" type="submit">
-      		Add To Cart
-      	</button>
-      </p>
-    </div>
-  </div>
-  <div class="card col-md-4 col-sm-4">
-  	<div class="product-name">Product Name</div>
-    <img class="card-img-top" [src]="fullImagePath" alt="Card image cap">
-    <div class="card-block">
-      <div class="input-style">
-      	 <form class="form-inline">
-		  <div class="form-group row">
-		  	<label class="col-md-2 font-weight-bold" for="quantity">Quantity</label>
-		  	<div class="col-sm-10 col-md-10">
-		  		<input type="text" class="form-control small-w" id="quantity">
-		  	</div>
-		  </div>	
-		</form>
-      </div>
-      <p class="card-text">Already on Order: 5 </p>
-      <p class="card-text">
-      	<button class="btn btn-primary" [routerLink]="['/products']" type="submit">
-      		Add To Cart
-      	</button>
-      </p>
-    </div>
-  </div>
-  <div class="card col-md-4 col-sm-4">
-  	<div class="product-name">Product Name</div>
-    <img class="card-img-top" [src]="fullImagePath" alt="Card image cap">
-    <div class="card-block">
-      <div class="input-style">
-      	 <form class="form-inline">
-		  <div class="form-group row">
-		  	<label class="col-md-2 font-weight-bold" for="quantity">Quantity</label>
-		  	<div class="col-sm-10 col-md-10">
-		  		<input type="text" class="form-control small-w" id="quantity">
-		  	</div>
-		  </div>	
-		</form>
-      </div>
-      <p class="card-text">Already on Order: 5 </p>
-      <p class="card-text">
-      	<button class="btn btn-primary" [routerLink]="['/products']" type="submit">
-      		Add To Cart
-      	</button>
-      </p>
-    </div>
-  </div>
-  <div class="card col-md-4 col-sm-4">
-  	<div class="product-name">Product Name</div>
+  <div class="card col-md-4 col-sm-4" *ngFor="let product of pagedItems">
+  	<div class="product-name">{{product.name}}</div>
     <img class="card-img-top" [src]="fullImagePath" alt="Card image cap">
     <div class="card-block">
       <div class="input-style">
@@ -122,3 +58,34 @@
     </div>
   </div>	  	  
 </div>
+
+<div>
+    <div class="container">
+        <div class="text-center">
+ 
+            <!-- items being paged 
+            <div *ngFor="let item of pagedItems">{{item.name}}</div>
+            -->
+ 
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="paginator">
+                    <a (click)="setPage(1, allProducts)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="paginator">
+                    <a (click)="setPage(pager.currentPage - 1, allProducts)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="paginator">
+                    <a (click)="setPage(page, allProducts)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="paginator">
+                    <a (click)="setPage(pager.currentPage + 1, allProducts)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="paginator">
+                    <a (click)="setPage(pager.totalPages, allProducts)">Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

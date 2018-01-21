@@ -23,8 +23,12 @@
     "autoprefixer": "^7.2.3",
     "bootstrap": "4.0.0-beta.2",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "ng-auto-complete": "^2.7.14",
+    "ngx-pagination": "^3.0.3",
     "popper.js": "^1.12.9",
+    "primeng": "^4.1.0",
     "rxjs": "^5.1.0",
     "tether": "^1.4.3",
     "zone.js": "^0.8.4"

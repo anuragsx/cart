@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './project.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-project',
@@ -33,6 +34,10 @@ export class ProjectComponent implements OnInit {
     }).catch(error => {
       console.log("Got another error:", error);
     });
+  }
+
+  loadProductService() {
+    //this.router.navigate(['/', 'products']);
   }
 
 }

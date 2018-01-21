@@ -2,12 +2,12 @@
 
 <div class="card-deck row"  >
   <div class="card col-md-4 col-sm-4" *ngFor="let project of allProjects">
-    <img class="card-img-top" [src]="fullImagePath" alt="Card image cap">
+    <img class="card-img-top" [src]="project.avatar" alt="Card image cap">
     <div class="card-block">
       <h4 class="card-title">{{project.name}}</h4>
       <p class="card-text">{{project.description}} </p>
       <p class="card-text">
-      	<button class="btn btn-primary float-right" [routerLink]="['/products']" type="submit">
+      	<button class="btn btn-primary float-right" [routerLink]="['/project', project.id]" type="submit">
       		Select
       	</button>
       </p>
