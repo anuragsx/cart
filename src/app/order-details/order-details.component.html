@@ -1,0 +1,92 @@
+<div class="row">
+	<div class="col-md-4"><h2> STEP 3 - Add Details </h2></div>
+	<div class="col-md-8">
+		<div class="float-right">Items In Order ({{cartItems.length}})</div>
+	</div>
+</div>
+
+<div class="alert alert-success fade hide" role="alert" [innerHtml]="message">
+  
+</div>
+
+<div class="row top-buffer" *ngFor="let item of cartItems">
+	<div class="col-md-4">
+		 <div class="text-center"><strong>Sign:</strong>&nbsp; {{item.name}}</div> 
+		<img class="img-thumbnail" [src]="fullImagePath" alt="Card image cap">
+	</div>
+	<div class="col-md-4">
+		<form>
+		  <div class="form-group" *ngFor="let item of maxLines(item); let i = index" [attr.data-index]='i'>
+		    <!-- <label for="formGroupExampleInput">Example label</label> -->
+		    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Line {{i+1}}" >
+		  </div>
+		</form>
+	</div>
+	<div class="col-md-4"></div>
+	<hr size="30">
+</div>
+
+<!-- <div class="card-deck row">
+  <div class="card col-md-4 col-sm-4" *ngFor="let product of pagedItems">
+  	<div class="product-name">{{product.name}}</div>
+    
+    <div class="card-block">
+      <div class="input-style">
+      	 <form class="form-inline">
+		  <div class="form-group row">
+		  	<label class="col-md-2 font-weight-bold" for="quantity">Quantity</label>
+		  	<div class="col-sm-10 col-md-10">
+		  		<input type="text" class="form-control small-w" id="quantity">
+		  	</div>
+		  </div>	
+		</form>
+      </div>
+      <p class="card-text">Already on Order: 5 </p>
+      <p class="card-text">
+      	<button class="btn btn-primary" (click)="addToOrder($event, product)" type="submit">
+      		Add To Cart
+      	</button>
+      </p>
+    </div>
+  </div>	  	  
+</div> -->
+
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary next-btn float-right" [routerLink]="['/order-shipping']" type="submit">
+          Next
+    </button>
+  </div>
+</div>
+
+
+<!-- <div>
+    <div class="container">
+        <div class="text-center"> -->
+ 
+            <!-- items being paged 
+            <div *ngFor="let item of pagedItems">{{item.name}}</div>
+            -->
+ 
+            <!-- pager -->
+<!--             <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="paginator">
+                    <a (click)="setPage(1, allProducts)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="paginator">
+                    <a (click)="setPage(pager.currentPage - 1, allProducts)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="paginator">
+                    <a (click)="setPage(page, allProducts)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="paginator">
+                    <a (click)="setPage(pager.currentPage + 1, allProducts)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="paginator">
+                    <a (click)="setPage(pager.totalPages, allProducts)">Last</a>
+                </li>
+            </ul> -->
+<!--         </div>
+    </div>
+</div>
+ -->

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductsService } from './products.service';
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+import {FlashMessage} from 'angular-flash-message';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 import * as _ from 'underscore';
 
@@ -33,15 +35,24 @@ export class ProductsComponent implements OnInit {
 
   filteredProducts: any[];
 
-  constructor(private productService: ProductsService) { 
-  	this.fullImagePath = '/assets/images/obe.jpg'
+  storedProducts: any[];
+
+  message: string;
+
+  productInfo: any[];
+
+  constructor(private productService: ProductsService, private flashMessage: FlashMessage, private localStorageService: LocalStorageService) { 
+  	this.fullImagePath = '/assets/images/obe.jpg';
+    this.productInfo = [];
   }
 
   Selected(item: SelectedAutocompleteItem) {
-        console.log(item);
+    console.log(item);
   }
 
   ngOnInit() {
+    window.localStorage.removeItem('productStored');
+    this.flashMessage.success('Success messagesssss');
   	this.productList();
   }
 
@@ -137,6 +148,25 @@ export class ProductsComponent implements OnInit {
         this.pagedItems.push(searchRes); 
       }
     }
+  }
+
+  addToOrder(event, product) {
+    let alertBox = document.getElementsByClassName("alert-success")[0] as HTMLInputElement;
+    this.message = 'Product ' + '<strong>'+ product.name + '</strong>' + '  ' + " added to order successfully!";
+    alertBox.classList.add('show');
+
+    //let productInfo = [];
+
+    console.log(this.productInfo);
+    this.productInfo.push(product);
+    window.localStorage.setItem("productStored", JSON.stringify(this.productInfo));
+    //console.log('products in cart', this.productInfo);
+    
+    console.log('json', this.allProducts);
+
+    
+
+    //console.log('storage', JSON.parse(window.localStorage.getItem("productStored")));    
   }
 
 }

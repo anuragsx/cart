@@ -1,0 +1,55 @@
+.card-deck .card {
+    margin-bottom: 30px;
+    min-width: 20%;
+    margin-left: 15px;
+    max-width: 22%;
+}
+
+.btn-primary {
+    margin-bottom: 15px;
+}
+
+.product-name {
+	text-align: center;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.input-style {
+	display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 16px;
+    -webkit-margin-end: 0px;
+}
+
+.form-inline .form-control {
+    width: 50%;
+}
+
+.paginator{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.pagination {
+    margin-left: 32%;
+}
+
+li.active {
+    background-color: gray;
+}
+
+.ui-widget-content {
+    border: 1px solid #323232;
+    background: #8A8C8A !important;
+    color: #cccccc;
+}
+
+.next-btn {
+    width: 12%;
+}
+
+.top-buffer { margin-top:30px; }

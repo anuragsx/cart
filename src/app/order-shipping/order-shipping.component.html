@@ -1,0 +1,166 @@
+<div class="row">
+	<div class="col-md-4"><h2> STEP 4 - Shipping </h2></div>
+	<div class="col-md-8">
+		<!-- <div class="float-right">Items In Order ({{cartItems.length}})</div> -->
+	</div>
+</div>
+
+<div class="alert alert-success fade hide" role="alert" [innerHtml]="message">
+  
+</div>
+
+<hr />
+
+<div>
+	
+
+<div class="container">
+Select the Shipping Method to use for the Order
+<br />
+<br />
+  <form>
+    <div class="form-group row">
+	  <label class="col-sm-3 col-form-label" for="shipping-method">Select Shipping Method</label>
+	  <select class="form-control col-sm-3" id="shipping-method">
+	    <option selected></option>
+	    <option value="1">One</option>
+	    <option value="2">Two</option>
+	    <option value="3">Three</option>
+	  </select>
+    </div>
+    <div class="form-group row">
+      <label for="order-num" class="col-sm-3 col-form-label">Enter Purchase Order Number</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="order-num">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="purchaser-name" class="col-sm-3 col-form-label">Purchaser Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="purchaser-name">
+      </div>
+    </div>
+    <hr />
+
+   <div class="row">
+   	<div class="col-sm-6">
+		<div class="card">
+<!-- 		  <div class="card-header">
+		    Cindy Magee
+		  </div> -->
+		  <div class="card-block">
+		    <h4 class="card-title">Cingy Magee</h4>
+		    <p class="card-text">123 ABC street, somewhere, NY</p>
+		    <a href="#" class="btn btn-primary">Ship to this Address</a>
+		    <br />
+		    <a href="#" class="btn btn-primary spacing">Edit</a>
+		    <a href="#" class="btn btn-primary spacing">Delete</a>
+		  </div>
+		</div>   		
+   	</div>
+   	<div class="col-sm-6">
+		<div class="card">
+<!-- 		  <div class="card-header">
+		    Featured
+		  </div> -->
+		  <div class="card-block">
+		    <h4 class="card-title">Simple Steps to living Life</h4>
+		    <p class="card-text">123 ABC street, somewhere, NY</p>
+		    <a href="#" class="btn btn-primary">Ship to this Address</a> <br />
+		    <a href="#" class="btn btn-primary spacing">Edit</a>
+		    <a href="#" class="btn btn-primary spacing">Delete</a>
+		  </div>
+		</div>   		
+   	</div>
+   </div>
+  </form>
+
+  <hr />
+
+    <form>
+	Or create new one
+	<br />
+	<br />   
+    <div class="form-group row">
+      <label for="contact" class="col-sm-3 col-form-label">Contact</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="contact">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="address1" class="col-sm-3 col-form-label">Address1</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="address1">
+      </div>
+    </div>  
+    <div class="form-group row">
+      <label for="address2" class="col-sm-3 col-form-label">Address2</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="address2">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="address3" class="col-sm-3 col-form-label">Address3</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="address3">
+      </div>
+    </div>    
+    <div class="form-group row">
+      <label for="city" class="col-sm-3 col-form-label">City</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="city">
+      </div>
+    </div>           
+    <div class="form-group row">
+	  <label class="col-sm-3 col-form-label" for="country">Country</label>
+	  <select class="form-control col-sm-3" id="country">
+	    <option selected></option>
+	    <option value="1">US</option>
+	    <option value="2">INDIA</option>
+	  </select>
+    </div>
+    <div class="form-group row">
+	  <label class="col-sm-3 col-form-label" for="state">State</label>
+	  <select class="form-control col-sm-3" id="state">
+	    <option selected></option>
+	    <option value="1">TX</option>
+	    <option value="2">CA</option>
+	  </select>
+    </div>
+    <div class="form-group row">
+      <label for="zip" class="col-sm-3 col-form-label">Zip</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="zip">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="phone">
+      </div>
+    </div>    
+    <div class="form-group row">
+      <label for="fax" class="col-sm-3 col-form-label">Fax</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="fax">
+      </div>
+    </div>    
+
+  </form>
+</div>	
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary next-btn float-right" [routerLink]="['/order-review']" type="submit">
+          Next
+    </button>
+  </div>
+</div>
+</div>
+
+

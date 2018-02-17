@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {CreateNewAutocompleteGroup, SelectedAutocompleteItem, NgAutocompleteComponent} from "ng-auto-complete";
+import {FlashMessage} from 'angular-flash-message';
 
 @Component({
   selector: 'app-root',

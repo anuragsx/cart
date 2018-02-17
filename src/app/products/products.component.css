@@ -47,3 +47,7 @@ li.active {
     background: #8A8C8A !important;
     color: #cccccc;
 }
+
+.next-btn {
+    width: 12%;
+}
